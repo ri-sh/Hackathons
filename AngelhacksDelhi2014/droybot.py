@@ -252,15 +252,15 @@ class Tracking:
         y *= mul
 
         posy = lambda n:(y/x) * n
-        stepp = 8
+        stepp = 20
 
         if x > 0:
             pos=m.position()
-            for i in range(0, x, stepp): m.move(i, posy(i))
+            for i in range(0, x, stepp): m.move(pos[0]+i, pos[1]-posy(i))
         if x < 0:
             pos=m.position()
 
-            for i in range(x, 0, stepp): m.move(i, posy(i))
+            for i in range(x, 0, stepp): m.move(pos[0]+i, pos[1]-posy(i))
 
         time.sleep(0.2)
 
